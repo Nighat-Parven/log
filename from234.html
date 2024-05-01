@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<style>
+
+.body{
+
+background-image: url('bg.jpg');
+background-size: cover;
+background-repeat: repeat-y;
+height: 1000px;
+width: 100%;
+opacity: 0.5;
+z-index: 1;
+}
+.container {
+    width: 60%;
+    margin-top: 10vh;
+    background-color: green;
+    border-radius: 20px;
+    border-style: inset;
+border-color: blue  black rgb(96, 7, 104) rgb(153, 51, 97);
+border-width: 10px;
+
+}
+
+.container:hover{
+
+  opacity: 0.9;
+z-index: 2;
+}
+
+.positionr{
+        position: relative;
+        top: 100vh;
+        display: flex;
+        align-items: center;
+         justify-content: center;
+        cursor: pointer;
+        padding: 5px;
+
+
+}
+.hdn{
+    display: none;
+}
+.button{
+  box-shadow:1px 1px 10px 10px black;   
+ padding: 2%;
+color:white;
+background-color: rgb(63, 12, 111);
+border-radius: 10px;
+
+}
+.button::after{
+
+
+}
+
+@media screen and (max-width: 600px) {
+  .positionr{margin-top: 30px;
+
+
+    color: rgb(40, 37, 37)
+  }
+
+  .container{
+
+    background-color: rgb(98, 176, 21);
+  }
+  .bg-secondary{
+
+    background-color: green;
+  }
+  
+}
+.bginfo{
+top: 20px;
+background-color: blue ;
+color: white;
+padding: 1%;
+box-shadow:1px 1px 10px 10px black; 
+border-radius: 10px;
+}
+h1 {text-align: center;
+text-decoration-line: underline;
+text-decoration-style: double;
+color: red;
+text-decoration-color:  blue;
+padding: 20px;
+text-transform: capitalize;
+text-shadow: 5px 5px 10px  rgb(7, 2, 2);
+font-family: 'Brush Script MT', cursive;
+}
+
+.form-control{
+
+font-size: 14px;
+
+}
+.i{
+    position: absolute;
+    z-index: 1;
+    padding-top: 8px;
+    padding-left: 10px;
+   font-size: 20px;
+
+}
+
+
+
+button:visited {
+background-color: cyan;
+}
+
+button:hover {
+background-color: lightgreen;
+}
+
+button:active {
+background-color: hotpink;
+}
+.body:hover {
+opacity: 0.9;
+z-index: 1;
+}
+
+</style>
+</head>
+<body>
+
+    <div class="positionr">
+        <button class="bginfo" type="button" onclick="tg()">login/Register</button>
+    </div>
+
+      <div class="container ">
+
+    <form id="reg" name ="regform" onsubmit="return rvalid()">
+        <div class="b">
+        <h1>Regestration Form</h1>
+ 
+
+     <label id="inv"> enter your name</label> 
+     <span id="as"></span> <br>
+     <input class="form-control" type="text" name="name"><br>
+   
+     <label>enter your Location</label><br>
+     <input class="form-control" type="text" name="Location"><br>
+     
+     <label>Enter your Gmail</label> <br>
+     <input class="form-control" type="email" name="Gmail"><br>
+    
+     <label>Enter your Phone number</label> <br>
+     <input class="form-control" type="number" name="number"><br>
+
+   </div>
+   <div class="text-center mt-4 border ">
+     <button>REGISTER</button>
+     </div>
+     </form>
+  </div>
+ <!------------------>
+ <div class="container border box">
+  <form class="hdn"id="log"name ="logform" onsubmit="return valid()">
+    <div class="border">
+     <h1 class="text-center ">login Form</h1>
+
+
+  <label> enter your name</label>
+  <br>
+  <input class="form-control" type="text" name="name"><br>
+ 
+  <label>Enter your Gmail</label>
+  <br>
+  <input class="form-control" type="text" name="Gmail"><br>
+ 
+ 
+<div >
+    <br>
+ <button class="text-center mt-4 border ">login</button>
+</div>
+ 
+  </form>
+</div>
+</div>
+
+  <script>
+    function tg(){
+
+        var x = document.getElementById('reg');
+        var y = document.getElementById('log');
+
+        x.classList.toggle('hdn');
+        y.classList.toggle('hdn');
+    }
+
+    function rvalid(){
+
+var n = document.forms["regform"]["name"].value;
+var l = document.forms["regform"]["Location"].value;
+var g = document.forms["regform"]["Gmail"].value;
+var p = document.forms["regform"]["number"].value;
+
+
+
+if(n === "" || l === "" || g ==="" || p === "" )
+{
+
+  
+    document.getElementById('inv').innerHTML ='invalit';
+    document.getElementById('inv').style.color ='red';
+    alert("must filed");
+}
+
+return;
+}
+
+
+function valid(){
+
+var n = document.forms["logform"]["name"].value;
+var l = document.forms["logform"]["Gmail"].value;
+
+
+
+if(n === "" || g === "")
+{
+
+    alert("must filed");
+}
+return;
+}
+
+  </script>
+    
+</body>
+</html>
